@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title">Build a survey form</h1>
+    <p id="description">This is a survey form</p>
+    <form id="survey-form">
+      <label id="name-label" for="name">name</label>
+      <input id="name" type="text" placeholder="full name" required />
+      <label id="email-label" for="email">email</label>
+      <input id="email" type="email" placeholder="email" required />
+      <label id="number-label" for="number">number</label>
+      <input id="number" type="number" min="4" max="8" placeholder="number" />
+      <label id="dropdown-label" for="contact">number</label>
+      <select name="contact" id="dropdown">
+        <option value="">--Please choose an option--</option>
+        <option value="number">Via phone</option>
+        <option value="email">Via email</option>
+      </select>
+      <fieldset>
+        <legend>Which service were you looking for?</legend>
+
+        <div>
+          <input type="radio" id="socials-radio" name="drone" value="Socials" checked />
+          <label for="huey">Socials</label>
+        </div>
+
+        <div>
+          <input type="radio" id="website-radio" name="drone" value="Website development" />
+          <label for="dewey">Website development</label>
+        </div>
+
+        <div>
+          <input type="radio" id="video-radio" name="drone" value="Video editing" />
+          <label for="louie">Video editing</label>
+        </div>
+        <div>
+            <input type="checkbox" id="seo-checkbox" name="drone" value="SEO" />
+            <label for="louie">SEO</label>
+          </div>
+          <div>
+            <input type="checkbox" id="copywriting-checkbox" name="drone" value="Copywriting" />
+            <label for="louie">Copywriting</label>
+          </div>
+      </fieldset>
+      <textarea id="survey-form" ></textarea>
+      <button id="submit" type="submit"></button>
+    </form>
+  </body>
+</html>
