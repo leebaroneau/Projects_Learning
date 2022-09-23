@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .move-area {
+        /*normally use body*/
+        width: 100vw;
+        height: 100vh;
+        padding: 10% 45%;
+      }
+      .container {
+        width: 100%;
+      }
+      .eye {
+        position: relative;
+        display: inline-block;
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        background: #ccc;
+      }
+      .eye:after {
+        /*pupil*/
+        position: absolute;
+        bottom: 17px;
+        right: 10px;
+        width: 10px;
+        height: 10px;
+        background: #000;
+        border-radius: 50%;
+        content: " ";
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  </head>
+  <body>
+    <section class="move-area">
+      <div class=".container">
+        <div class="eye"></div>
+        <div class="eye"></div>
+      </div>
+    </section>
+    <script>
+      //This is a pen based off of whipcat "eyes follow mouse". It is just cleaned up, face removed, and then made to be a little more cartoony. https://codepen.io/whipcat/pen/ExKPQqZ
+
+      $(".move-area").mousemove(function (event) {
+        var eye = $(".eye");
+        console.log("eye", eye);
+        var x = eye.offset().left + eye.width() / 2;
+        var y = eye.offset().top + eye.height() / 2;
+        var rad = Math.atan2(event.pageX - x, event.pageY - y);
+        var rot = rad * (180 / Math.PI) * -1 + 180;
+        eye.css({
+          "-webkit-transform": "rotate(" + rot + "deg)",
+          "-moz-transform": "rotate(" + rot + "deg)",
+          "-ms-transform": "rotate(" + rot + "deg)",
+          transform: "rotate(" + rot + "deg)",
+        });
+      });
+    </script>
+  </body>
+</html>
