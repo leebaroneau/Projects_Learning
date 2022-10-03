@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Inconsolata:400);
+      body {
+        position: relative;
+        background-color: #111;
+        font-family: "Inconsolata", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      body .counter,
+      body .count-text {
+        top: 60px;
+        left: 60px;
+        margin: 0;
+        color: #fff;
+        text-transform: uppercase;
+      }
+      body .counter {
+        font-size: 60px;
+      }
+      body .count-text {
+        left: 180px;
+        font-size: 20px;
+        letter-spacing: 5px;
+      }
+      body .repeat-btn {
+        background-color: #fff;
+        outline: none;
+        border: 1px solid #fff;
+        padding: 20px 40px;
+        font-family: "Inconsolata", sans-serif;
+        font-size: 16px;
+        letter-spacing: 5px;
+        line-height: 1.6;
+        text-transform: uppercase;
+        color: #222;
+        box-sizing: border-box;
+        opacity: 1;
+        visibility: visible;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+      }
+      body .repeat-btn.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+      body .repeat-btn:hover {
+        background-color: transparent;
+        color: #5ee4cb;
+        border: 1px solid #5ee4cb;
+      }
+      body .progress-bar {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 0;
+        background-color: #fff;
+      }
+      body .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  </head>
+  <body>
+    <div class="progress-bar" data-from="0" data-to="100"></div>
+    <div class="wrapper">
+      <div class="counter" data-from="0" data-to="100"></div>
+      <div class="count-text"></div>
+      <button class="repeat-btn hidden">repeat</button>
+    </div>
+
+    <script>
+      function countUp() {
+        var countEl = document.querySelector(".counter");
+        var countBar = document.querySelector(".progress-bar");
+        var countText = document.querySelector(".count-text");
+        countText.innerHTML = "counting...";
+        var x = 0;
+        var y = countEl.dataset.to;
+        var z = countBar.dataset.to;
+
+        function addNum() {
+          countEl.innerHTML = x;
+          countBar.style.height = x + "vh";
+          x += 1;
+          if (x > y && x > z) {
+            clearInterval(timer);
+            countText.innerHTML = "done!";
+            toggleBtn.classList.remove("hidden");
+          }
+        }
+
+        var timer = window.setInterval(addNum, 60);
+        var toggleBtn = document.querySelector(".repeat-btn");
+        toggleBtn.addEventListener("click", function () {
+          countUp();
+          toggleBtn.classList.add("hidden");
+        });
+      }
+      countUp();
+    </script>
+  </body>
+</html>
