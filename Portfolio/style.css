@@ -1,0 +1,59 @@
+*:before,
+*:after {
+  font-family: "La Belle Aurore", cursive;
+  color: #515152;
+  font-size: 1.5rem;
+  position: block;
+}
+
+*:before {
+  margin-top: -2rem;
+  left: -2rem;
+}
+
+*:after {
+  font-size: 1.5rem;
+  margin-left: 3rem;
+}
+
+body:after {
+  content: "<body>";
+}
+
+body:before {
+  content: "</body>";
+}
+
+h1:before {
+  content: "<h1>";
+}
+h1:after {
+  content: "<h1/>";
+}
+h2:before {
+  content: "<h2>";
+}
+h2:after {
+  content: "<h2/>";
+}
+
+p:first-of-type:before {
+  content: "<p>";
+}
+p:last-of-type:after {
+  content: "<p/>";
+}
+
+form:before {
+  content: "<form>";
+}
+form:after {
+  content: "</form>";
+}
+
+section:before {
+  content: "<section>";
+}
+section:after {
+  content: "</section>";
+}
